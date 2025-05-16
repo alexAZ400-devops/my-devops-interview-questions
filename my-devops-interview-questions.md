@@ -68,7 +68,16 @@ Each stage creates a separate intermediate image, but only the final stage produ
 ## Kubernetes
 
 ### What is the main difference between Deployment and StatefulSet in Kubernetes?
-[Question was listed but the answer was missing.]
+**Deployment**
+Used for stateless applications where each pod instance is interchangeable.
+Ensures high availability by allowing easy scaling, updating, and rollback.
+Pods created by a Deployment do not maintain persistent storage or identities.
+Uses ReplicaSets to manage pod scaling.
+**StatefulSet**
+Designed for stateful applications where each pod has a unique identity.
+Pods maintain a stable hostname, persistent volume, and order.
+Ideal for databases or distributed applications like MongoDB, Cassandra, Elasticsearch.
+Uses Persistent Volume Claims (PVCs) to ensure data persists across restarts.
 
 ### Explain the role of etcd in a Kubernetes cluster.
 Distributed key-value store used by Kubernetes to store cluster state and configuration data. It holds cluster data (nodes, pods, configs, secrets, etc.) and current state (used by the control plane). If etcd goes down or is corrupted, the control plane can’t function properly.
