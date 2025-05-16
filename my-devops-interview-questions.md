@@ -68,12 +68,12 @@ Each stage creates a separate intermediate image, but only the final stage produ
 ## Kubernetes
 
 ### What is the main difference between Deployment and StatefulSet in Kubernetes?
-**Deployment**
+- **Deployment**
 Used for stateless applications where each pod instance is interchangeable.
 Ensures high availability by allowing easy scaling, updating, and rollback.
 Pods created by a Deployment do not maintain persistent storage or identities.
 Uses ReplicaSets to manage pod scaling.
-**StatefulSet**
+- **StatefulSet**
 Designed for stateful applications where each pod has a unique identity.
 Pods maintain a stable hostname, persistent volume, and order.
 Ideal for databases or distributed applications like MongoDB, Cassandra, Elasticsearch.
