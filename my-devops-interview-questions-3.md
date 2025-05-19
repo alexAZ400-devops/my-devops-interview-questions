@@ -132,8 +132,9 @@ Static and reassignable
 Tool that sends code to SonarQube for static analysis.
 
 ### What if SonarQube server is slow?
-- Check resources.
-- Upgrade to latest version.
+- Code analysis steps that depend on SonarQube (e.g., during the Source or Build stage) will take longer or timeout.
+- If the server doesn’t respond within the expected time, tools like Jenkins, CodeBuild, or GitHub Actions may fail the step.
+- If your pipeline is configured to require successful SonarQube analysis before proceeding to later stages (e.g., test or deploy), a slow SonarQube server can block the whole deployment.
 
 ### Jenkins Declarative Pipeline Stages
 - `pipeline`, `agent`, `stages`, `steps`, `post`
