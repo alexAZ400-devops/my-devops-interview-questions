@@ -3,14 +3,16 @@
 ## CI/CD Pipeline Overview
 
 ### Can you explain the end-to-end CI/CD pipeline in your project?
-In one of my AWS-based projects, I implemented an end-to-end CI/CD pipeline using GitHub, Jenkins, AWS CodePipeline, and CodeDeploy to automate the build, test, and deployment process.
-
-- **Code Commit & Version Control**: Developers pushed their code to GitHub repositories. We followed branching strategies like feature branches and pull requests with integrated code reviews.
-- **Build Stage**: Jenkins triggered a job via webhooks. It ran unit tests, linting, and built the app (e.g., Python/Node.js) into a Docker image.
-- **Artifact Storage**: Docker images were pushed to Amazon ECR; artifacts were uploaded to S3.
-- **Infrastructure Automation**: Terraform and CloudFormation provisioned staging/production environments.
-- **Deployment Stage**: AWS CodePipeline with CodeDeploy deployed builds to EC2 or EKS. Used Canary deployments.
-- **Monitoring & Alerts**: AWS CloudWatch, Prometheus, and Grafana monitored performance.
+We had created CI/CD pipeline & automated infrastructure provisioning and configuration management of Amazon Connect using GitHub, AWS CodePipeline, CloudFormation, S3, and DynamoDB Streams.
+In GitHub the templates.yaml file stores Amazon Connect configurations like Queues, Quick Connects, and Routing Profiles.
+When changes are committed and pushed to github, CodePipeline triggers execution across several stages: 
+Source (retrieves files and performs code quality, security, and testing checks via SonarQube, Trivy, and linting tools), 
+Build (validates CloudFormation syntax with cfn-lint), 
+Test (executes CloudFormation Change Sets and verifies integrations), 
+Approval for Production (manual review for safe deployment), and 
+Deploy (applies CloudFormation changes, updates agent configurations stored in S3, and reflects updates dynamically via DynamoDB Streams).
+Contact flows, user management, and configurations are handled manually within the Amazon Connect console.
+We made sure this pipeline ensures automated & scalable updates to Amazon Connect resources while maintaining security, validation, and real-time synchronization across services.
 
 ## Kubernetes Concepts
 
