@@ -6,6 +6,7 @@ DaemonSet: It ensures that the pod is running in the node. If the pod is down, i
 StatefulSet: Manages stateful applications, like databases, backend part which maintains its state even after session ends.
 
 2. **Can you write a YAML file for a Kubernetes deployment?**  
+Basic syntax
 ```yaml
 apiVersion: v2
 kind: Deployment
@@ -16,7 +17,6 @@ spec:
   selector:
   template:
 ```
-(Note: YAML file appears to be incomplete.)
 
 3. **What is the difference between PersistentVolume (PV) and PersistentVolumeClaim (PVC)?**  
 PV is the actual storage provisioned assigned by Admin and can be dynamically or manually assigned.  
