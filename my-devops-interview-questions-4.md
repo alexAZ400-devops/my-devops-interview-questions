@@ -30,8 +30,8 @@ PVC is the request to use the PV resource created by user and it needs a matchin
 - Ensure volume is not already bound.
 
 5. **What is the difference between kubectl apply and kubectl create?**  
-Create is for the new manifest file.  
-Apply is for updating the already existing configuration.
+- kubectl create → Only creates a resource; fails if it already exists.
+- kubectl apply → Creates the resource if it doesn't exist or updates it if it does.
 
 6. **What is blue-green deployment?**  
 Blue is current version. Green is new version. After testing and checking traffic will be shifted from Blue to Green.
